@@ -21,7 +21,7 @@
         <div class="col-md-4">
             <h2>Let's Play Tic Tac Toe!</h2>
 
-            <p class="error help-block" x-ng-show="userErrors[1].occurred">{{userErrors[1].message}}</p>
+            <p class="error help-block" x-ng-show="userErrors[1].occurred" x-ng-hide="!gameInProgress">{{userErrors[1].message}}</p>
             <p class="error help-block" x-ng-show="userErrors[2].occurred">{{userErrors[2].message}}</p>
 
             <form name="userForm" ng-submit="addInput()" novalidate>
