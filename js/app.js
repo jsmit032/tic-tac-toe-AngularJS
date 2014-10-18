@@ -8,6 +8,9 @@ TTTApp.controller('TTTController', function ($scope) {
 
   $scope.testString = "Angular source, App, and Controller present" ;
 
+    // List of players
+    $scope.players = [];
+
   //List of user errors
   $scope.userErrors = [
       {
@@ -139,8 +142,7 @@ TTTApp.controller('TTTController', function ($scope) {
             // if clicked cell equals 0 and game not in progress then gameOver() is ran and userErrors Game Over occurs
             //userError already clicked also gets set to false since game is over
             if ((thisCell.clickNumber == 0 || 1) && !gameInProgress) {
-                $scope.userErrors[2].occurred = true;
-                $scope.userErrors[1].occurred = false;
+                $scope.stopGame();
                 console.log("GAME OVER: " + $scope.userErrors[1].name + " occurred ?: " + $scope.userErrors[1].occurred);
 
             } else {

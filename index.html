@@ -2,9 +2,11 @@
 <html ng-app="TTTApp">
 <head>
 	<title>TTT REFERENCE STEP 1</title>
+    <!--CSS files-->
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--JavaScript files-->
 	<script src="js/angular.min.js"></script>
 	<script src="js/app.js"></script>
 	
@@ -14,7 +16,7 @@
 
     <div class="row navbar">
         <div class="col-md-4">
-            <div class="play-container" x-ng-class="{turn:(moveCount % 2) == 0}" ng-hide="players.length != 2">
+            <div class="play-container" x-ng-class="{turn:(moveCount % 2) == 0}" ng-hide="players.length < 1">
         	    <h3>{{players[0].name}}</h3>
         	    <h3>{{players[0].wins}}</h3>
             </div>
@@ -23,7 +25,7 @@
         <div class="col-md-4">
             <h2>Let's Play Tic Tac Toe!</h2>
 
-            <p class="error help-block" x-ng-show="userErrors[1].occurred" x-ng-hide="!gameInProgress">{{userErrors[1].message}}</p>
+            <p class="error help-block" x-ng-show="userErrors[1].occurred">{{userErrors[1].message}}</p>
             <p class="error help-block" x-ng-show="userErrors[2].occurred">{{userErrors[2].message}}</p>
 
             <form name="userForm" ng-submit="addInput()" novalidate>
@@ -38,7 +40,7 @@
 	      </div>
 
 	      <div class="col-md-4">
-              <div class="play-container" x-ng-class="{turn:(moveCount % 2) == 1}" ng-hide="players.length != 2">
+              <div class="play-container" x-ng-class="{turn:(moveCount % 2) == 1}" ng-hide="players.length < 1">
                   <h3>{{players[1].name}}</h3>
                   <h3>{{players[1].wins}}</h3>
               </div>
